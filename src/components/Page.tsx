@@ -33,7 +33,8 @@ const styles: CSS = {
   display: {
     width: "2048px",
     height: "1024px",
-    background: Palette.Dark,
+    background: `radial-gradient(transparent 50%, ${Palette.Blue}55), radial-gradient(${Palette.Dark}cc, ${Palette.Dark}ee), url(/background.png)`,
+    backgroundSize: "cover",
     position: "relative"
   }
 }
