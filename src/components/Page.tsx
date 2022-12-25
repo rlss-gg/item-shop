@@ -1,6 +1,6 @@
 import { CSS, Palette } from "types/CSS"
 
-type PageProps = {
+export type PageProps = {
   children?: React.ReactNode
 }
 
@@ -33,8 +33,15 @@ const styles: CSS = {
   display: {
     width: "2048px",
     height: "1024px",
-    background: `radial-gradient(transparent 50%, ${Palette.Blue}55), radial-gradient(${Palette.Dark}cc, ${Palette.Dark}ee), url(/background.png)`,
+    background: `
+      radial-gradient(transparent 50%, ${Palette.Blue}55),
+      radial-gradient(${Palette.Dark}aa, ${Palette.Dark}ee),
+      linear-gradient(${Palette.Dark}77, transparent 50%),
+      url(/background.png)
+    `,
     backgroundSize: "cover",
-    position: "relative"
+    backgroundPosition: "center",
+    position: "relative",
+    overflow: "hidden"
   }
 }

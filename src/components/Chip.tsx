@@ -1,7 +1,7 @@
 import { CSSProperties } from "react"
 import { CSS } from "types/CSS"
 
-type ChipProps = {
+export type ChipProps = {
   textColor: string
   backgroundColor: string
   borderColor: string

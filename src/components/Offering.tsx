@@ -3,10 +3,10 @@ import { CSS, Paint, Palette } from "types/CSS"
 import { Item } from "types/Item"
 import Chip from "./Chip"
 
-type OfferingProps = {
+export type OfferingProps = {
   name: string
   decalFor?: string
-  imgSrc: string
+  thumbnail: string
   type: Item.Type
   rarity: Item.Rarity
   paint?: Item.Paint
@@ -16,56 +16,104 @@ type OfferingProps = {
 }
 
 export default function Offering(props: OfferingProps) {
+  const iconPath = ((type: Item.Type): string => {
+    switch (type) {
+      case "Avatar":
+        return "/avatars/"
+      case "Banner":
+        return "/banners/"
+      case "Body":
+        return "/bodies/"
+      case "Rocket Boost":
+        return "/boosters/"
+      case "Decal":
+        return "/decals/"
+      case "Goal Explosion":
+        return "/goal explosions/"
+      case "Sticker":
+        return "/stickers/"
+      case "Topper":
+        return "/toppers/"
+      case "Wheels":
+        return "/wheels/"
+      default:
+        return "/"
+    }
+  })(props.type)
+
+  const accentColor = props.featured ? Palette.BlueLight : Palette.GreyLight
+  const paintColor =
+    props.paint === "Black" ? Palette.WhiteDark : Paint[props.paint ?? "Black"]
+
   return (
     <div
       style={{
         ...styles.item,
-        borderColor: props.featured ? Palette.BlueLight : Palette.Grey,
-        background: `linear-gradient(90deg, black 50%, ${
-          props.featured ? Palette.BlueLight : Palette.Grey
-        } 150%)`,
-        boxShadow: `0 0 2rem 1rem ${
-          props.featured ? Palette.BlueLight : Palette.Grey
-        }44, 0 0 1rem 0.5rem ${
-          props.featured ? Palette.BlueLight : Palette.Grey
-        }aa inset`
+        borderColor: accentColor,
+        background: `linear-gradient(90deg, black 50%, ${accentColor} 150%)`,
+        boxShadow: `
+          0 0 2rem 1rem ${accentColor}44,
+          0 0 1rem 0.5rem ${accentColor}aa inset
+        `
       }}
     >
+      {/* Image */}
       <div style={styles.iconContainer}>
-        <Image src={props.imgSrc} height={210} width={210} alt={props.name} />
+        <Image
+          src={iconPath + props.thumbnail}
+          height={210}
+          width={210}
+          alt={props.name}
+          style={styles.icon}
+        />
+        <div
+          style={{
+            ...styles.iconCover,
+            background: `
+              linear-gradient(to right, ${accentColor}99, transparent 50%)
+            `
+          }}
+        />
       </div>
+      {/* Details */}
       <div style={styles.info}>
+        {/* Name (and body for a decal) */}
         <span style={styles.title}>{props.name}</span>
         {props.decalFor && (
           <span style={styles.decalFor}>{props.decalFor}</span>
         )}
+        {/* Rarity and type */}
         <span style={styles.properties}>
           {props.rarity} {props.type}
         </span>
+        {/* Duration in store */}
+        <span style={styles.duration}>{props.duration} DAYS</span>
+        {/* Price */}
         <span style={styles.price}>
           {props.price.toLocaleString("en-US")}
           <Image src="/sp.png" height={40} width={40} alt="SP" />
         </span>
       </div>
-      <Chip
-        value={`${props.duration} days`}
-        textColor={Palette.WhiteDark}
-        borderColor={Palette.GreyLight}
-        backgroundColor={Palette.Grey}
-        style={styles.duration}
-      />
+      {/* Paint */}
       {props.paint && (
-        <Chip
-          value={props.paint}
-          textColor={
-            props.paint === "Black" ? Palette.WhiteDark : Paint[props.paint]
-          }
-          borderColor={
-            props.paint === "Black" ? Palette.WhiteDark : Paint[props.paint]
-          }
-          backgroundColor={Palette.Dark}
-          style={styles.paint}
-        />
+        <>
+          <Chip
+            value={props.paint}
+            textColor={paintColor}
+            borderColor={paintColor}
+            backgroundColor={Palette.Dark}
+            style={styles.paint}
+          />
+          <div
+            style={{
+              ...styles.paintAccent,
+              boxShadow: `
+                0 0 2rem 1rem ${paintColor}44,
+                0 0 1rem 0.5rem ${paintColor}44 inset
+              `
+            }}
+          />
+        </>
       )}
     </div>
   )
@@ -84,7 +132,16 @@ const styles: CSS = {
   iconContainer: {
     padding: "2rem",
     display: "grid",
-    placeItems: "center"
+    placeItems: "center",
+    position: "relative"
+  },
+  iconCover: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    borderRadius: "2rem"
   },
   info: {
     display: "flex",
@@ -108,7 +165,12 @@ const styles: CSS = {
   },
   properties: {
     display: "block",
-    fontSize: "1.5rem"
+    fontSize: "1.5rem",
+    color: Palette.WhiteDark
+  },
+  duration: {
+    color: Palette.Gold,
+    fontSize: "1.2rem"
   },
   price: {
     display: "flex",
@@ -116,16 +178,20 @@ const styles: CSS = {
     marginTop: "0.5em",
     fontSize: "2rem"
   },
-  duration: {
-    position: "absolute",
-    top: "-0.5rem",
-    right: "-0.5rem",
-    borderRadius: "0.5rem"
-  },
   paint: {
     position: "absolute",
     bottom: "-1.5rem",
     left: "50%",
+    width: "15rem",
+    textAlign: "center",
     transform: "translateX(-50%)"
+  },
+  paintAccent: {
+    position: "absolute",
+    top: "0.2rem",
+    left: "0.2rem",
+    borderRadius: "2rem",
+    width: "calc(100% - 0.4rem)",
+    height: "calc(100% - 0.4rem)"
   }
 }
