@@ -13,6 +13,7 @@ export type OfferingProps = {
   price: number
   duration: number
   featured?: boolean
+  fontMultiplier?: number
 }
 
 export default function Offering(props: OfferingProps) {
@@ -43,7 +44,11 @@ export default function Offering(props: OfferingProps) {
 
   const accentColor = props.featured ? Palette.BlueLight : Palette.GreyLight
   const paintColor =
-    props.paint === "Black" ? Palette.WhiteDark : Paint[props.paint ?? "Black"]
+    props.paint === "Black"
+      ? Palette.WhiteDark
+      : props.paint === "Burnt Sienna"
+      ? Palette.Brown
+      : Paint[props.paint ?? "Black"]
 
   return (
     <div
@@ -78,7 +83,14 @@ export default function Offering(props: OfferingProps) {
       {/* Details */}
       <div style={styles.info}>
         {/* Name (and body for a decal) */}
-        <span style={styles.title}>{props.name}</span>
+        <span
+          style={{
+            ...styles.title,
+            fontSize: 2 * (props.fontMultiplier ?? 1) + "rem"
+          }}
+        >
+          {props.name}
+        </span>
         {props.decalFor && (
           <span style={styles.decalFor}>{props.decalFor}</span>
         )}

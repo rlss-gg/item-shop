@@ -17,7 +17,8 @@ export enum Palette {
   Bronze = "#AD8A56",
   Red = "#E74C3C",
   Black = "#000000",
-  Transparent = "transparent"
+  Transparent = "transparent",
+  Brown = "#A52A2A"
 }
 
 export const Paint: Record<Item.Paint, string> = {

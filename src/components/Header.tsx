@@ -47,4 +47,13 @@ export class DisplayDate extends Date {
       new Date(this.getFullYear(), this.getMonth(), this.getDate())
     ).format("Do MMMM YYYY")
   }
+
+  public static fromUnixEpoch(timestamp: number) {
+    const date = new Date(timestamp)
+    return new DisplayDate(
+      date.getFullYear(),
+      date.getMonth() + 1,
+      date.getDate()
+    )
+  }
 }
