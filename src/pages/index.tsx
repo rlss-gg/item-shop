@@ -13,7 +13,7 @@ export default function Home() {
         <title>RL Sideswipe Item Shop Image Generator</title>
       </Head>
       <Page>
-        <Header date={date} />
+        <Header date={date} page="Offerings" />
         <div style={styles.offerings}>
           {offerings.map((offering, i) => (
             <Offering key={i} {...offering} />

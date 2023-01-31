@@ -3,12 +3,13 @@ import moment from "moment"
 
 export type HeaderProps = {
   date: DisplayDate
+  page: "Offerings" | "Offering Changes"
 }
 
 export default function Header(props: HeaderProps) {
   return (
     <div style={styles.heading}>
-      <h1 style={styles.title}>RL Sideswipe Item Shop Offerings</h1>
+      <h1 style={styles.title}>RL Sideswipe Item Shop {props.page}</h1>
       <span style={styles.date}>{props.date.display}</span>
     </div>
   )

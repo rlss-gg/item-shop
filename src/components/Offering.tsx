@@ -99,7 +99,9 @@ export default function Offering(props: OfferingProps) {
           {props.rarity} {props.type}
         </span>
         {/* Duration in store */}
-        <span style={styles.duration}>{props.duration} DAYS</span>
+        <span style={styles.duration}>
+          {props.duration} DAY{props.duration !== 1 && "S"}
+        </span>
         {/* Price */}
         <span style={styles.price}>
           {props.price.toLocaleString("en-US")}
@@ -129,6 +131,14 @@ export default function Offering(props: OfferingProps) {
       )}
     </div>
   )
+}
+
+type NoneProps = {
+  children?: React.ReactNode
+}
+
+export function None(props: NoneProps) {
+  return <div style={{ ...styles.item, ...styles.none }}>{props.children}</div>
 }
 
 const styles: CSS = {
@@ -205,5 +215,13 @@ const styles: CSS = {
     borderRadius: "2rem",
     width: "calc(100% - 0.4rem)",
     height: "calc(100% - 0.4rem)"
+  },
+  none: {
+    border: `0.4rem dashed ${Palette.WhiteDark}55`,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: "4rem",
+    color: Palette.WhiteDark
   }
 }
