@@ -9,6 +9,8 @@ export default function Exchanges() {
       <Head>
         <title> RL Sideswipe Item Database</title>
       </Head>
+
+      <h1>Avatars</h1>
       <div style={styles.items}>
         {Object.values(Items.avatars).map(avatar => (
           <div key={avatar.name}>
@@ -18,11 +20,46 @@ export default function Exchanges() {
             <br />
             <span>{avatar.type}</span>
             <br />
+            <div style={styles.imageContainer}>
+              <Image
+                src={avatar.thumbnail}
+                alt={avatar.name}
+                style={styles.image}
+                width="0"
+                height="0"
+                sizes="100vw"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <br />
+      <h2>Banners</h2>
+      <div style={styles.items}>
+        {Object.values(Items.banners).map(banner => (
+          <div key={banner.name} style={styles.item}>
+            <span>{banner.name}</span>
+            <br />
+            <span>{banner.rarity}</span>
+            <br />
+            <span>{banner.type}</span>
+            <br />
             <Image
-              src={avatar.thumbnail}
-              alt={avatar.name}
-              width={150}
-              height={150}
+              src={banner.thumbnail}
+              alt={banner.name}
+              style={styles.image}
+              width="0"
+              height="0"
+              sizes="100vw"
+            />
+            <Image
+              src={banner.full}
+              alt={banner.name}
+              style={styles.image}
+              width="0"
+              height="0"
+              sizes="100vw"
             />
           </div>
         ))}
@@ -36,5 +73,13 @@ const styles: CSS = {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))",
     gap: "1rem 0"
+  },
+  imageContainer: {
+    position: "relative",
+    height: "150px"
+  },
+  image: {
+    width: "100%",
+    height: "auto"
   }
 }

@@ -9,32 +9,32 @@ export default abstract class BaseItem {
     public readonly rarity: Item.Rarity,
     thumbnail: string
   ) {
-    const iconPath = ((type: Item.Type): string => {
-      switch (type) {
-        case "Avatar":
-          return "/avatars/"
-        case "Banner":
-          return "/banners/"
-        case "Body":
-          return "/bodies/"
-        case "Rocket Boost":
-          return "/boosters/"
-        case "Decal":
-          return "/decals/"
-        case "Goal Explosion":
-          return "/goal explosions/"
-        case "Sticker":
-          return "/stickers/"
-        case "Topper":
-          return "/toppers/"
-        case "Wheels":
-          return "/wheels/"
-        default:
-          return "/"
-      }
-    })(type)
+    this.thumbnail = BaseItem.getIconPath(type) + thumbnail
+  }
 
-    this.thumbnail = iconPath + thumbnail
+  public static getIconPath(type: Item.Type): string {
+    switch (type) {
+      case "Avatar":
+        return "/avatars/"
+      case "Banner":
+        return "/banners/"
+      case "Body":
+        return "/bodies/"
+      case "Rocket Boost":
+        return "/boosters/"
+      case "Decal":
+        return "/decals/"
+      case "Goal Explosion":
+        return "/goal explosions/"
+      case "Sticker":
+        return "/stickers/"
+      case "Topper":
+        return "/toppers/"
+      case "Wheels":
+        return "/wheels/"
+      default:
+        return "/"
+    }
   }
 }
 
@@ -45,8 +45,17 @@ export class Avatar extends BaseItem {
 }
 
 export class Banner extends BaseItem {
-  public constructor(name: string, rarity: Item.Rarity, thumbnail: string) {
+  public readonly full: string
+
+  public constructor(
+    name: string,
+    rarity: Item.Rarity,
+    thumbnail: string,
+    full: string
+  ) {
     super("Banner", name, rarity, thumbnail)
+
+    this.full = BaseItem.getIconPath("Banner") + full
   }
 }
 
