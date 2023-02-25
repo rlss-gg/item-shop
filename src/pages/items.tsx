@@ -38,7 +38,7 @@ export default function Exchanges() {
       <h2>Banners</h2>
       <div style={styles.items}>
         {Object.values(Items.banners).map(banner => (
-          <div key={banner.name} style={styles.item}>
+          <div key={banner.name}>
             <span>{banner.name}</span>
             <br />
             <span>{banner.rarity}</span>
@@ -61,6 +61,31 @@ export default function Exchanges() {
               height="0"
               sizes="100vw"
             />
+          </div>
+        ))}
+      </div>
+
+      <br />
+      <h1>Bodies</h1>
+      <div style={styles.items}>
+        {Object.values(Items.bodies).map(body => (
+          <div key={body.name}>
+            <span>{body.name}</span>
+            <br />
+            <span>{body.rarity}</span>
+            <br />
+            <span>{body.type}</span>
+            <br />
+            <div style={styles.imageContainer}>
+              <Image
+                src={body.thumbnail}
+                alt={body.name}
+                style={styles.image}
+                width="0"
+                height="0"
+                sizes="100vw"
+              />
+            </div>
           </div>
         ))}
       </div>
