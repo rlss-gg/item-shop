@@ -37,3 +37,62 @@ export default abstract class BaseItem {
     this.thumbnail = iconPath + thumbnail
   }
 }
+
+export class Avatar extends BaseItem {
+  public constructor(name: string, rarity: Item.Rarity, thumbnail: string) {
+    super("Avatar", name, rarity, thumbnail)
+  }
+}
+
+export class Banner extends BaseItem {
+  public constructor(name: string, rarity: Item.Rarity, thumbnail: string) {
+    super("Banner", name, rarity, thumbnail)
+  }
+}
+
+export class Body extends BaseItem {
+  public constructor(name: string, rarity: Item.Rarity, thumbnail: string) {
+    super("Body", name, rarity, thumbnail)
+  }
+}
+
+export class Decal extends BaseItem {
+  public constructor(
+    name: string,
+    public readonly body: string,
+    rarity: Item.Rarity,
+    thumbnail: string
+  ) {
+    super("Decal", name, rarity, thumbnail)
+  }
+}
+
+export class GoalExplosion extends BaseItem {
+  public constructor(name: string, rarity: Item.Rarity, thumbnail: string) {
+    super("Goal Explosion", name, rarity, thumbnail)
+  }
+}
+
+export class RocketBoost extends BaseItem {
+  public constructor(name: string, rarity: Item.Rarity, thumbnail: string) {
+    super("Rocket Boost", name, rarity, thumbnail)
+  }
+}
+
+export class Sticker extends BaseItem {
+  public constructor(name: string, rarity: Item.Rarity, thumbnail: string) {
+    super("Sticker", name, rarity, thumbnail)
+  }
+}
+
+export class Topper extends BaseItem {
+  public constructor(name: string, rarity: Item.Rarity, thumbnail: string) {
+    super("Topper", name, rarity, thumbnail)
+  }
+}
+
+export class Wheel extends BaseItem {
+  public constructor(name: string, rarity: Item.Rarity, thumbnail: string) {
+    super("Wheels", name, rarity, thumbnail)
+  }
+}
