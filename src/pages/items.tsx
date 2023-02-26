@@ -114,7 +114,26 @@ export default function Exchanges() {
 
         <br />
         <h1>Rocket Boosts</h1>
-        {/* TODO */}
+        <div style={styles.items}>
+          {Object.values(Items.rocketBoosts).map(rocketBoost => (
+            <div key={rocketBoost.name} style={styles.item}>
+              <span>{rocketBoost.name}</span>
+              <br />
+              <span style={styles.rarity}>{rocketBoost.rarity}</span>
+              <br />
+              <div style={styles.imageContainer}>
+                <Image
+                  src={rocketBoost.thumbnail}
+                  alt={rocketBoost.name}
+                  style={styles.image}
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
 
         <br />
         <h1>Stickers</h1>
