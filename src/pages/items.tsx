@@ -137,7 +137,26 @@ export default function Exchanges() {
 
         <br />
         <h1>Stickers</h1>
-        {/* TODO */}
+        <div style={styles.items}>
+          {Object.values(Items.stickers).map(sticker => (
+            <div key={sticker.name} style={styles.item}>
+              <span>{sticker.name}</span>
+              <br />
+              <span style={styles.rarity}>{sticker.rarity}</span>
+              <br />
+              <div style={styles.imageContainer}>
+                <Image
+                  src={sticker.thumbnail}
+                  alt={sticker.name}
+                  style={styles.image}
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
 
         <br />
         <h1>Toppers</h1>
