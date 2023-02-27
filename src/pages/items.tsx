@@ -160,7 +160,26 @@ export default function Exchanges() {
 
         <br />
         <h1>Toppers</h1>
-        {/* TODO */}
+        <div style={styles.items}>
+          {Object.values(Items.toppers).map(topper => (
+            <div key={topper.name} style={styles.item}>
+              <span>{topper.name}</span>
+              <br />
+              <span style={styles.rarity}>{topper.rarity}</span>
+              <br />
+              <div style={styles.imageContainer}>
+                <Image
+                  src={topper.thumbnail}
+                  alt={topper.name}
+                  style={styles.image}
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
 
         <br />
         <h1>Wheels</h1>
