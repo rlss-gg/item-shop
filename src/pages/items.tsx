@@ -183,7 +183,26 @@ export default function Exchanges() {
 
         <br />
         <h1>Wheels</h1>
-        {/* TODO */}
+        <div style={styles.items}>
+          {Object.values(Items.wheels).map(wheel => (
+            <div key={wheel.name} style={styles.item}>
+              <span>{wheel.name}</span>
+              <br />
+              <span style={styles.rarity}>{wheel.rarity}</span>
+              <br />
+              <div style={styles.imageContainer}>
+                <Image
+                  src={wheel.thumbnail}
+                  alt={wheel.name}
+                  style={styles.image}
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   )
