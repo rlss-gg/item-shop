@@ -87,7 +87,29 @@ export default function Exchanges() {
 
         <br />
         <h1>Decals</h1>
-        {/* TODO */}
+        <div style={styles.items}>
+          {Object.values(Items.decals)
+            .map(body => Object.values(body))
+            .flat()
+            .map(decal => (
+              <div key={decal.name} style={styles.item}>
+                <span>{decal.body}</span>: <span>{decal.name}</span>
+                <br />
+                <span style={styles.rarity}>{decal.rarity}</span>
+                <br />
+                <div style={styles.imageContainer}>
+                  <Image
+                    src={decal.thumbnail}
+                    alt={decal.name}
+                    style={styles.image}
+                    width="0"
+                    height="0"
+                    sizes="100vw"
+                  />
+                </div>
+              </div>
+            ))}
+        </div>
 
         <br />
         <h1>Goal Explosions</h1>
