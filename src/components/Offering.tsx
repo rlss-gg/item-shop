@@ -33,6 +33,8 @@ export default function Offering(props: OfferingProps) {
         return "/goal explosions/"
       case "Sticker":
         return "/stickers/"
+      case "Title":
+        return "/titles/t_ui_TitleTagIcon.png"
       case "Topper":
         return "/toppers/"
       case "Wheels":
