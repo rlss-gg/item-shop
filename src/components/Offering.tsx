@@ -121,9 +121,10 @@ export function Item(
   item: BaseItem,
   price: number,
   duration: number,
+  paint?: Item.Paint,
   featured: boolean = false
 ) {
-  return item.getOfferingProps(price, duration, featured)
+  return item.getOfferingProps(price, duration, paint, featured)
 }
 
 const styles: CSS = {

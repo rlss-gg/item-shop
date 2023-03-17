@@ -16,6 +16,7 @@ export default abstract class BaseItem {
   public getOfferingProps(
     price: number,
     duration: number,
+    paint?: Item.Paint,
     featured: boolean = false
   ): OfferingProps {
     return {
@@ -25,7 +26,8 @@ export default abstract class BaseItem {
       thumbnail: this.thumbnail,
       price,
       duration,
-      featured
+      featured,
+      paint
     }
   }
 
@@ -97,10 +99,11 @@ export class Decal extends BaseItem {
   public getOfferingProps(
     price: number,
     duration: number,
+    paint?: Item.Paint,
     featured: boolean = false
   ): OfferingProps {
     return {
-      ...super.getOfferingProps(price, duration, featured),
+      ...super.getOfferingProps(price, duration, paint, featured),
       decalFor: this.body
     }
   }
