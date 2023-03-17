@@ -1,3 +1,4 @@
+import BaseItem from "items/BaseItem"
 import Image from "next/image"
 import { CSS, Paint, Palette } from "types/CSS"
 import { Item } from "types/Item"
@@ -17,33 +18,6 @@ export type OfferingProps = {
 }
 
 export default function Offering(props: OfferingProps) {
-  const iconPath = ((type: Item.Type): string => {
-    switch (type) {
-      case "Avatar":
-        return "/avatars/"
-      case "Banner":
-        return "/banners/"
-      case "Body":
-        return "/bodies/"
-      case "Rocket Boost":
-        return "/boosters/"
-      case "Decal":
-        return "/decals/"
-      case "Goal Explosion":
-        return "/goal explosions/"
-      case "Sticker":
-        return "/stickers/"
-      case "Title":
-        return "/titles/t_ui_TitleTagIcon.png"
-      case "Topper":
-        return "/toppers/"
-      case "Wheels":
-        return "/wheels/"
-      default:
-        return "/"
-    }
-  })(props.type)
-
   const accentColor = props.featured ? Palette.BlueLight : Palette.GreyLight
   const paintColor =
     props.paint === "Black"
@@ -67,7 +41,7 @@ export default function Offering(props: OfferingProps) {
       {/* Image */}
       <div style={styles.iconContainer}>
         <Image
-          src={iconPath + props.thumbnail}
+          src={props.thumbnail}
           height={210}
           width={210}
           alt={props.name}
@@ -141,6 +115,15 @@ type NoneProps = {
 
 export function None(props: NoneProps) {
   return <div style={{ ...styles.item, ...styles.none }}>{props.children}</div>
+}
+
+export function Item(
+  item: BaseItem,
+  price: number,
+  duration: number,
+  featured: boolean = false
+) {
+  return item.getOfferingProps(price, duration, featured)
 }
 
 const styles: CSS = {

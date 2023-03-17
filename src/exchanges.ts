@@ -1,5 +1,6 @@
 import { ExchangeProps } from "components/Exchange"
 import { DisplayDate } from "components/Header"
+import { Item } from "components/Offering"
 
 /**
  * The date of the current item shop rotation.

@@ -1,3 +1,4 @@
+import { OfferingProps } from "components/Offering"
 import { Item } from "types/Item"
 
 export default abstract class BaseItem {
@@ -10,6 +11,22 @@ export default abstract class BaseItem {
     thumbnail: string
   ) {
     this.thumbnail = BaseItem.getIconPath(type) + thumbnail
+  }
+
+  public getOfferingProps(
+    price: number,
+    duration: number,
+    featured: boolean = false
+  ): OfferingProps {
+    return {
+      name: this.name,
+      rarity: this.rarity,
+      type: this.type,
+      thumbnail: this.thumbnail,
+      price,
+      duration,
+      featured
+    }
   }
 
   public static getIconPath(type: Item.Type): string {
@@ -28,6 +45,8 @@ export default abstract class BaseItem {
         return "/goal explosions/"
       case "Sticker":
         return "/stickers/"
+      case "Title":
+        return "/titles/"
       case "Topper":
         return "/toppers/"
       case "Wheels":
@@ -74,6 +93,17 @@ export class Decal extends BaseItem {
   ) {
     super("Decal", name, rarity, thumbnail)
   }
+
+  public getOfferingProps(
+    price: number,
+    duration: number,
+    featured: boolean = false
+  ): OfferingProps {
+    return {
+      ...super.getOfferingProps(price, duration, featured),
+      decalFor: this.body
+    }
+  }
 }
 
 export class GoalExplosion extends BaseItem {
@@ -91,6 +121,12 @@ export class RocketBoost extends BaseItem {
 export class Sticker extends BaseItem {
   public constructor(name: string, rarity: Item.Rarity, thumbnail: string) {
     super("Sticker", name, rarity, thumbnail)
+  }
+}
+
+export class Title extends BaseItem {
+  public constructor(name: string, rarity: Item.Rarity) {
+    super("Title", name, rarity, "t_ui_TitleTagIcon.png")
   }
 }
 
