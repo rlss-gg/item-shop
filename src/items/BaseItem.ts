@@ -13,6 +13,32 @@ export default abstract class BaseItem {
     this.thumbnail = BaseItem.getIconPath(type) + thumbnail
   }
 
+  public get salvage(): Item.Price | null {
+    const price = (unpainted: number, painted: number): Item.Price => ({
+      unpainted,
+      painted
+    })
+
+    switch (this.rarity) {
+      case "Common":
+        return price(60, 72)
+      case "Uncommon":
+        return price(120, 144)
+      case "Rare":
+        return price(240, 288)
+      case "Very Rare":
+        return price(360, 432)
+      case "Import":
+        return price(540, 648)
+      case "Exotic":
+        return price(720, 864)
+      case "Black Market":
+        return price(960, 1152)
+      default:
+        return null
+    }
+  }
+
   public getOfferingProps(
     price: number,
     duration: number,

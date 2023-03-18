@@ -38,4 +38,9 @@ export namespace Item {
     | "Banner"
     | "Title"
     | "Sticker"
+
+  export type Price = {
+    unpainted: number
+    painted: number
+  }
 }
