@@ -186,8 +186,8 @@ export const GamerPad = new Banner(
   "t_ui_Thumb_Banner_GamerPad.png",
   "t_ui_Banner_GamerPad.png"
 )
-export const Migrane = new Banner(
-  "Migrane",
+export const Migraine = new Banner(
+  "Migraine",
   "Uncommon",
   "t_ui_Thumb_Banner_Migraine.png",
   "t_ui_Banner_Migraine.png"
