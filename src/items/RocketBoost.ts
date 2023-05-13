@@ -79,7 +79,7 @@ export const Sacred = new RocketBoost(
   "Holylight_Thumbnail.png"
 )
 export const Tachyon = new RocketBoost(
-  "Yachyon",
+  "Tachyon",
   "Import",
   "Technotrail_Thumbnail.png"
 )
