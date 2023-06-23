@@ -1,47 +1,17 @@
-import { CSS, Palette } from "types/CSS"
+import Display from "./Display"
 
 export type PageProps = {
   children?: React.ReactNode
 }
 
-export default function Page(props: PageProps) {
+export default function Page({ children }: PageProps) {
   return (
-    <main style={styles.main}>
-      <div style={styles.setup}>
+    <main className="w-[100vw] h-[100vh] bg-black grid place-items-center">
+      <div className="text-white top-0 m-4 absolute">
         Set your device viewport height and width to 2048x1024 to take the
         screenshot.
       </div>
-      <div style={styles.display}>{props.children}</div>
+      <Display>{children}</Display>
     </main>
   )
-}
-
-const styles: CSS = {
-  main: {
-    width: "100vw",
-    height: "100vh",
-    background: Palette.Black,
-    display: "grid",
-    placeItems: "center"
-  },
-  setup: {
-    position: "absolute",
-    color: Palette.White,
-    top: 0,
-    margin: "1rem"
-  },
-  display: {
-    width: "2048px",
-    height: "1024px",
-    background: `
-      radial-gradient(transparent 50%, ${Palette.Blue}55),
-      radial-gradient(${Palette.Dark}aa, ${Palette.Dark}ee),
-      linear-gradient(${Palette.Dark}77, transparent 50%),
-      url(/background.png)
-    `,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    position: "relative",
-    overflow: "hidden"
-  }
 }

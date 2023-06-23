@@ -7,7 +7,7 @@ export const PartyTime = new GoalExplosion(
 )
 export const Kablooey = new GoalExplosion(
   "Kablooey",
-  "Import",
+  "Exotic",
   "Explosione_T_AS.png"
 )
 export const MetaBlast = new GoalExplosion(

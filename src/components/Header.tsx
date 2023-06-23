@@ -46,7 +46,7 @@ export class DisplayDate extends Date {
   public get display() {
     return moment(
       new Date(this.getFullYear(), this.getMonth(), this.getDate())
-    ).format("Do MMMM YYYY")
+    ).format("MMMM D, YYYY")
   }
 
   public static fromUnixEpoch(timestamp: number) {

@@ -1,0 +1,24 @@
+@import "../palette.scss";
+
+.display {
+  background: radial-gradient(
+      transparentize($palette-blue, 0.3),
+      transparentize($palette-blue, 0.4)
+    ),
+    // background: radial-gradient(
+    //     transparent 0%,
+    //     transparentize($palette-blue, 0.66)
+    //   ),
+    //   radial-gradient(
+    //     transparentize($palette-dark, 0.33),
+    //     transparentize($palette-dark, 0.06)
+    //   ),
+    linear-gradient(transparentize($palette-dark, 0.2) 20%, transparent),
+    url(https://cdn.rlss.gg/assets/items/background.png);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  width: 2048px;
+  height: 1024px;
+}
