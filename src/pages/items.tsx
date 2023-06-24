@@ -1,4 +1,4 @@
-import Items from "items/Items"
+import * as Items from "@rlss-gg/items"
 import Head from "next/head"
 import Image from "next/image"
 import { CSS, Palette } from "types/CSS"

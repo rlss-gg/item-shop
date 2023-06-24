@@ -1,5 +1,13 @@
 @import "../palette.scss";
 
+.new {
+  $color: #ffd32a;
+  background-color: $color;
+  box-shadow: 0 0 20px 2px lighten($color, 10%) inset,
+    0 0 20px 2px transparentize(lighten($color, 10%), 0.5);
+  border: 2px solid lighten($color, 10%);
+}
+
 // Paints
 @mixin paint($color) {
   background-color: $color;
