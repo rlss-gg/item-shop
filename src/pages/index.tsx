@@ -7,7 +7,7 @@ export default function Offerings() {
   return (
     <Page>
       <div className="mx-24 my-20">
-        <Header date={date} page={"Offerings"} />
+        <Header date={date} />
 
         <div className="flex flex-row-reverse flex-wrap-reverse gap-5">
           {offerings.map((offering, i) => (

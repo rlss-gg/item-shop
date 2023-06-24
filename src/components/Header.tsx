@@ -2,7 +2,6 @@ import Image from "next/image"
 import DisplayDate from "utils/DisplayDate"
 
 export type HeaderProps = {
-  page: "Offerings" | "Offering Changes"
   date: DisplayDate
 }
 
@@ -11,7 +10,7 @@ export default function Header(props: HeaderProps) {
     <div className="mb-5 flex justify-between items-center">
       <div>
         <h1 className="text-white font-bold text-7xl tracking-wide uppercase">
-          Item Shop {props.page}
+          Item Shop Offerings
         </h1>
         <h2 className="text-[#ffd32a] font-bold text-7xl tracking-wide uppercase">
           {props.date.display}
@@ -20,8 +19,8 @@ export default function Header(props: HeaderProps) {
       <div>
         <Image
           src="https://cdn.rlss.gg/assets/fulllogo.png"
-          height={100}
-          width={625}
+          height={120}
+          width={750}
           alt="RLSS.GG Logo"
           className="object-contain"
         />

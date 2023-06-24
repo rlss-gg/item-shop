@@ -1,5 +1,5 @@
+import { Item } from "@rlss-gg/items"
 import Image from "next/image"
-import { Item } from "types/Item"
 import styles from "styles/components/Offering.module.scss"
 
 export type OfferingProps = {
@@ -50,7 +50,7 @@ export default function Offering(props: OfferingProps) {
                   width={60}
                   alt="SP"
                 />
-                <p className="text-5xl">{props.price}</p>
+                <p className="text-5xl">{props.price.toLocaleString()}</p>
               </div>
             </div>
           </div>
