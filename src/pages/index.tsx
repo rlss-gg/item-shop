@@ -1,35 +1,20 @@
-import Footer from "components/Footer"
 import Header from "components/Header"
 import Offering from "components/Offering"
 import Page from "components/Page"
-import Head from "next/head"
 import { date, offerings } from "offerings"
-import { CSS } from "types/CSS"
 
-export default function Home() {
+export default function Offerings() {
   return (
-    <>
-      <Head>
-        <title>RL Sideswipe Item Shop Image Generator</title>
-      </Head>
-      <Page>
-        <Header date={date} page="Offerings" />
-        <div style={styles.offerings}>
+    <Page>
+      <div className="mx-24 my-20">
+        <Header date={date} />
+
+        <div className="flex flex-row-reverse flex-wrap-reverse gap-5">
           {offerings.map((offering, i) => (
             <Offering key={i} {...offering} />
           ))}
         </div>
-        <Footer />
-      </Page>
-    </>
+      </div>
+    </Page>
   )
-}
-
-const styles: CSS = {
-  offerings: {
-    display: "flex",
-    flexFlow: "row-reverse wrap-reverse",
-    gap: "2rem",
-    padding: "2rem"
-  }
 }

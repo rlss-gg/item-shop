@@ -1,0 +1,121 @@
+@import "../palette.scss";
+
+.new {
+  $color: #ffd32a;
+  background-color: $color;
+  box-shadow: 0 0 20px 2px lighten($color, 10%) inset,
+    0 0 20px 2px transparentize(lighten($color, 10%), 0.5);
+  border: 2px solid lighten($color, 10%);
+}
+
+// Paints
+@mixin paint($color) {
+  background-color: $color;
+  box-shadow: 0 0 20px 2px lighten($color, 10%) inset;
+  border: 2px solid lighten($color, 10%);
+}
+
+.black {
+  @include paint($paint-black);
+}
+
+.burntsienna {
+  @include paint($paint-burnt-sienna);
+}
+
+.cobalt {
+  @include paint($paint-cobalt);
+}
+
+.crimson {
+  @include paint(darken($paint-crimson, 10%));
+}
+
+.forestgreen {
+  @include paint(darken($paint-forest-green, 20%));
+}
+
+.grey {
+  @include paint(darken($paint-grey, 20%));
+}
+
+.lime {
+  @include paint(darken($paint-lime, 20%));
+}
+
+.orange {
+  @include paint(darken($paint-orange, 20%));
+}
+
+.pink {
+  @include paint(darken($paint-pink, 10%));
+}
+
+.purple {
+  @include paint(darken($paint-purple, 10%));
+}
+
+.saffron {
+  @include paint(darken($paint-saffron, 30%));
+}
+
+.skyblue {
+  @include paint($paint-sky-blue);
+}
+
+.titaniumwhite {
+  @include paint(darken($paint-titanium-white, 50%));
+}
+
+// Rarities
+@mixin rarity($color) {
+  $tranparentized: transparentize($color, 0.25);
+  background-color: $tranparentized;
+  box-shadow: 0 0 200px 20px lighten($tranparentized, 20%) inset,
+    0 0 40px 0 lighten($tranparentized, 20%);
+  border: 2px solid lighten($tranparentized, 50%);
+}
+
+.default {
+  @include rarity($rarity-default);
+}
+
+.common {
+  @include rarity($rarity-common);
+}
+
+.uncommon {
+  @include rarity($rarity-uncommon);
+}
+
+.rare {
+  @include rarity($rarity-rare);
+}
+
+.veryrare {
+  @include rarity($rarity-very-rare);
+}
+
+.import {
+  @include rarity($rarity-import);
+}
+
+.exotic {
+  @include rarity($rarity-exotic);
+}
+
+.blackmarket {
+  @include rarity($rarity-black-market);
+}
+
+.limited {
+  @include rarity($rarity-limited);
+}
+
+.premium {
+  @include rarity($rarity-premium);
+}
+
+.currency {
+  @include rarity($rarity-currency);
+}
