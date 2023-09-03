@@ -9,7 +9,7 @@ export default function Document() {
           content="Generate social-media-friendly images of the current item shop rotation in Rocket League Sideswipe."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="https://rlss.gg/favicon.ico" />
       </Head>
       <body>
         <Main />
