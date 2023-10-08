@@ -1,6 +1,5 @@
-import { Decal, ItemType } from "@rlss-gg/items"
+import { Decal, endpoint, Item, ItemType } from "@rlss-gg/items"
 import { OfferingProps } from "components/Offering"
-import { Item } from "types/Item"
 
 export function Item(
   item: ItemType,
@@ -16,7 +15,7 @@ export function Item(
     decalFor,
     rarity: item.rarity,
     type: item.type,
-    thumbnail: item.thumbnail,
+    thumbnail: endpoint + item.thumbnail,
     price,
     duration,
     paint,

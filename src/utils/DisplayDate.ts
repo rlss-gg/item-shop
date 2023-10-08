@@ -11,8 +11,11 @@ export default class DisplayDate extends Date {
     ).format("MMMM D, YYYY")
   }
 
-  public static fromUnixEpoch(timestamp: number) {
-    const date = new Date(timestamp)
+  public static fromUnixEpoch(timestamp: number, aest: boolean = true) {
+    const currentOffset = new Date().getTimezoneOffset()
+    const offset = ((aest ? 600 : 0) + currentOffset) * 60 * 1000
+    const date = new Date(timestamp + offset)
+
     return new DisplayDate(
       date.getFullYear(),
       date.getMonth() + 1,
