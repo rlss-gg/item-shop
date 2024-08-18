@@ -80,20 +80,20 @@
   @include rarity($rarity-default);
 }
 
-.common {
-  @include rarity($rarity-common);
+.base {
+  @include rarity($rarity-base);
 }
 
-.uncommon {
-  @include rarity($rarity-uncommon);
+.sport {
+  @include rarity($rarity-sport);
 }
 
-.rare {
-  @include rarity($rarity-rare);
+.special {
+  @include rarity($rarity-special);
 }
 
-.veryrare {
-  @include rarity($rarity-very-rare);
+.deluxe {
+  @include rarity($rarity-deluxe);
 }
 
 .import {
@@ -108,8 +108,8 @@
   @include rarity($rarity-black-market);
 }
 
-.limited {
-  @include rarity($rarity-limited);
+.luxury {
+  @include rarity($rarity-luxury);
 }
 
 .premium {
