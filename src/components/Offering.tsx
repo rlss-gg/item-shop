@@ -56,24 +56,26 @@ export default function Offering(props: OfferingProps) {
           </div>
         </div>
 
-        <div className="absolute -bottom-2 left-0 w-full text-center">
+        <div className="absolute -bottom-3 left-0 w-full text-center">
           {props.paint && (
-            <span
-              className={`rounded py-2 px-5 text-3xl uppercase font-bold ${cl(
-                props.paint
-              )}`}
+            <div
+              className={`inline-block rounded py-2 px-5 ${cl(props.paint)}`}
             >
-              {props.paint}
-            </span>
+              <span className="text-3xl uppercase font-bold">
+                {props.paint}
+              </span>
+            </div>
           )}
         </div>
         {props.new && (
-          <div className="absolute -bottom-2 right-2">
-            <span
-              className={`rounded-full py-2 px-5 text-3xl uppercase font-bold text-black ${styles.new}`}
+          <div className="absolute -bottom-3 right-2">
+            <div
+              className={`inline-block rounded-full py-2 px-5 ${styles.new}`}
             >
-              new
-            </span>
+              <span className="text-3xl uppercase font-bold text-black">
+                new
+              </span>
+            </div>
           </div>
         )}
       </div>
