@@ -1,5 +1,5 @@
 // Base palette
-$palette-blue: #3e77d1;
+$palette-blue: darken(#3e77d1, 35);
 $palette-orange: #c98744;
 $palette-light: #aaaaaa;
 $palette-dark: #080b1c;
@@ -17,17 +17,17 @@ $paint-pink: #ff4081;
 $paint-purple: #9c27b0;
 $paint-saffron: #ffeb3b;
 $paint-sky-blue: #03a9f4;
-$paint-titanium-white: #ffffff;
+$paint-titanium-white: white;
 
 // Item rarities
-$rarity-default: #000000;
-$rarity-base: #000000;
-$rarity-sport: #1a1a1a;
-$rarity-special: #081d2b;
-$rarity-deluxe: #1e1023;
-$rarity-import: #2f0f04;
-$rarity-exotic: #302703;
-$rarity-black-market: #1e0e25;
-$rarity-luxury: #331b00;
-$rarity-premium: #092a17;
-$rarity-currency: #011232;
+$rarity-default: black;
+$rarity-base: black;
+$rarity-sport: darken(#4da4b8, 50);
+$rarity-special: darken(#081d2b, 50);
+$rarity-deluxe: darken(#1e1023, 50);
+$rarity-import: darken(#2f0f04, 50);
+$rarity-exotic: darken(#302703, 50);
+$rarity-black-market: darken(#1e0e25, 50);
+$rarity-luxury: darken(#331b00, 50);
+$rarity-premium: darken(#092a17, 50);
+$rarity-currency: darken(#011232, 50);

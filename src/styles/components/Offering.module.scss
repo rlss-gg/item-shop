@@ -10,9 +10,14 @@
 
 // Paints
 @mixin paint($color) {
-  background-color: $color;
-  box-shadow: 0 0 20px 2px lighten($color, 10%) inset;
+  background-color: darken($color, 50);
+  box-shadow: 0 0 20px 2px transparentize(lighten($color, 10%), 0.5),
+    inset 0 0 20px 2px transparentize(lighten($color, 10%), 0.5);
   border: 2px solid lighten($color, 10%);
+
+  & > span {
+    color: lighten($color, 40);
+  }
 }
 
 .black {
@@ -28,35 +33,35 @@
 }
 
 .crimson {
-  @include paint(darken($paint-crimson, 10%));
+  @include paint($paint-crimson);
 }
 
 .forestgreen {
-  @include paint(darken($paint-forest-green, 20%));
+  @include paint($paint-forest-green);
 }
 
 .grey {
-  @include paint(darken($paint-grey, 20%));
+  @include paint($paint-grey);
 }
 
 .lime {
-  @include paint(darken($paint-lime, 20%));
+  @include paint($paint-lime);
 }
 
 .orange {
-  @include paint(darken($paint-orange, 20%));
+  @include paint($paint-orange);
 }
 
 .pink {
-  @include paint(darken($paint-pink, 10%));
+  @include paint($paint-pink);
 }
 
 .purple {
-  @include paint(darken($paint-purple, 10%));
+  @include paint($paint-purple);
 }
 
 .saffron {
-  @include paint(darken($paint-saffron, 30%));
+  @include paint($paint-saffron);
 }
 
 .skyblue {
@@ -64,7 +69,7 @@
 }
 
 .titaniumwhite {
-  @include paint(darken($paint-titanium-white, 50%));
+  @include paint($paint-titanium-white);
 }
 
 // Rarities

@@ -18,8 +18,8 @@ export default function Offering(props: OfferingProps) {
   const cl = (value: string) => styles[value.toLowerCase().replaceAll(" ", "")]
 
   return (
-    <div className="flex-[1_0_35rem] max-w-[37.83375rem] h-[21rem]">
-      <div className={`relative rounded p-5 h-full ${cl(props.rarity)}`}>
+    <div className="flex-[1_0_35rem] max-w-[37.83375rem] h-[22rem]">
+      <div className={`relative rounded-xl p-5 h-full ${cl(props.rarity)}`}>
         <div className="flex gap-5 h-full">
           <Image
             src={props.thumbnail}
@@ -31,7 +31,7 @@ export default function Offering(props: OfferingProps) {
           <div className="flex flex-col justify-between py-8">
             <div>
               <p className="text-5xl uppercase font-bold">
-                {props.decalFor
+                {props.decalFor && props.decalFor !== "Universal"
                   ? `${props.decalFor}: ${props.name}`
                   : props.name}
               </p>
@@ -56,10 +56,12 @@ export default function Offering(props: OfferingProps) {
           </div>
         </div>
 
-        <div className="absolute -bottom-3 left-0 w-full text-center">
+        <div className="absolute -bottom-4 left-0 w-full text-center">
           {props.paint && (
             <div
-              className={`inline-block rounded py-2 px-5 ${cl(props.paint)}`}
+              className={`inline-block rounded-2xl py-2 px-6 ${cl(
+                props.paint
+              )}`}
             >
               <span className="text-3xl uppercase font-bold">
                 {props.paint}
@@ -68,10 +70,8 @@ export default function Offering(props: OfferingProps) {
           )}
         </div>
         {props.new && (
-          <div className="absolute -bottom-3 right-2">
-            <div
-              className={`inline-block rounded-full py-2 px-5 ${styles.new}`}
-            >
+          <div className="absolute -bottom-4 right-2">
+            <div className={`inline-block rounded-2xl py-2 px-5 ${styles.new}`}>
               <span className="text-3xl uppercase font-bold text-black">
                 new
               </span>

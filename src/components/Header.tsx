@@ -7,7 +7,7 @@ export type HeaderProps = {
 
 export default function Header(props: HeaderProps) {
   return (
-    <div className="mb-5 flex justify-between items-center">
+    <div className="-mt-5 mb-5 flex justify-between items-center">
       <div>
         <h1 className="text-white font-bold text-7xl tracking-wide uppercase">
           Item Shop Offerings
