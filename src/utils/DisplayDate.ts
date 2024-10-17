@@ -4,7 +4,7 @@ export default class DisplayDate extends Date {
   /**
    * The timezone in which the item shop resets.
    */
-  public static resetTimezone = -8
+  public static resetTimezone = 7
 
   public constructor(year: number, month: number, day: number) {
     super(year, month - 1, day)
