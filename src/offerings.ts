@@ -9,19 +9,19 @@ import { Item, NewItem } from "utils/Item"
 const date: DisplayDate = DisplayDate.fromUnixEpoch(Date.now())
 
 /**
- * The offerings in the current item shop. Order from last to first as shown in
- * the in-game shop (this is due to flex-box behaviour).
+ * The offerings in the current item shop. Order from first to last as shown in
+ * the in-game shop.
  *
  * Example:
  *
  * ```js
  * const offerings: OfferingProps[] = [
- *   NewItem(Items.stickers.EggEyes, 400, 1),
- *   NewItem(Items.avatars.Narwhal, 800, 2),
- *   Item(Items.wheels.VedAvaI, 1200, 2, "Orange"),
- *   Item(Items.rocketBoosts.ToonSketch, 1800, 5, "Titanium White"),
- *   Item(Items.wheels.Reaper, 2400, 5, "Grey"),
- *   Item(Items.goalExplosions.Hellfire, 5000, 2, "Saffron")
+ *   NewItem(Items.decals.Universal.TwentyXX, 5000, 4),
+ *   NewItem(Items.bodies.Marauder, 2400, 7, "Grey"),
+ *   NewItem(Items.rocketBoosts.MagicMissile, 1800, 7, "Saffron"),
+ *   NewItem(Items.avatars.DonutEater, 1200, 4),
+ *   NewItem(Items.toppers.RoosterComb, 800, 2),
+ *   NewItem(Items.avatars.MrsAvocado, 400, 1)
  * ]
  * ```
  */
