@@ -18,7 +18,7 @@ export default function Header(props: HeaderProps) {
       </div>
       <div>
         <Image
-          src="https://cdn.rlss.gg/assets/fulllogo.png"
+          src="https://rlss.blob.core.windows.net/assets/fulllogo.png"
           height={120}
           width={750}
           alt="RLSS.GG Logo"

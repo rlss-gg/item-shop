@@ -1,11 +1,11 @@
-import { Decal, endpoint, Item, ItemType } from "@rlss-gg/items"
+import { Decal, Item as ItemNS, ItemType } from "@rlss-gg/items"
 import { OfferingProps } from "components/Offering"
 
 export function Item(
   item: ItemType,
   price: number,
   duration: number,
-  paint?: Item.Paint
+  paint?: ItemNS.Paint
 ): OfferingProps {
   const isDecal = (item: ItemType): item is Decal => item.type === "Decal"
   const decalFor = isDecal(item) ? item.body : undefined
@@ -15,7 +15,7 @@ export function Item(
     decalFor,
     rarity: item.rarity,
     type: item.type,
-    thumbnail: endpoint + item.thumbnail,
+    thumbnail: "https://rlss.blob.core.windows.net/assets/items" + item.thumbnail,
     price,
     duration,
     paint,
@@ -27,7 +27,7 @@ export function NewItem(
   item: ItemType,
   price: number,
   duration: number,
-  paint?: Item.Paint
+  paint?: ItemNS.Paint
 ) {
   return { ...Item(item, price, duration, paint), new: true }
 }

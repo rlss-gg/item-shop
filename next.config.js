@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["cdn.rlss.gg"]
+    domains: ["cdn.rlss.gg", "rlss.blob.core.windows.net"]
   }
 }
 

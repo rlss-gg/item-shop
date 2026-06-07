@@ -45,7 +45,7 @@ export default function Offering(props: OfferingProps) {
             <div>
               <div className="flex gap-2 items-center">
                 <Image
-                  src="https://cdn.rlss.gg/assets/items/sp.png"
+                  src={`https://rlss.blob.core.windows.net/assets/items/sp.png`}
                   height={60}
                   width={60}
                   alt="SP"
